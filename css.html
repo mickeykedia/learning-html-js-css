@@ -1,0 +1,193 @@
+<html>	
+	<head>
+		<style>
+		/*	
+			FOR IE - body tag
+		*/
+			body{
+				text-align:center
+			}
+			/*
+				http://www.w3schools.com/css/css_boxmodel.asp
+			*/
+			#farouter {
+
+				width:800px;
+				border:1px solid red;
+				/*
+					margin - top right bottom left
+				*/
+				margin:10px auto 0px auto;
+				text-align:left;
+				font-size: 24px;
+			}
+			#header {
+				/*
+					width in percentage will be according to its container.
+				*/
+				width:100%;
+				height:100px;
+				padding-top:50px;
+				/*
+					background color covers even the padding, but not the margin - basically anything inside the border.
+				*/
+				background-color:#ddddff;
+			}			
+			#header h1{
+				/*
+					has a default margin
+					margin is between content or margin
+					
+				*/
+				margin-top:0px;
+				text-align:left;
+				/*
+					use both padding and margin to understand the difference betweent them.
+				*/
+				padding-left:20px;
+				margin-left:20px;
+				border:1px solid gray;
+				font-size: 1.8em;
+			}
+
+            #content {
+				margin-left:210px;
+				text-align:justify;
+			}
+			.imageclass {
+				display:inline;
+				border:1px solid gray;
+			}
+			.blockclass {
+				display:block;
+				border:1px solid gray;
+			}
+			/*
+				display none/inline/block - decides the layout. If the display is none, the element is 
+				not layouted. It's place is taken by the next element etc.
+
+			
+
+				visibility:hidden - style property. The layout happens, but the element is merely not visible. 
+				<span> has default style display:inline
+				<div> has default style display:block
+
+
+				input[type="radio"]
+
+				certain elements actually have a state with respect to an event on the dom. specific css properties can be 
+				specified for these events.
+				a:hover 
+				a:visited
+
+			*/
+			/*
+				position - absolute specifies the absolute position w.r.t the page. 
+				relative specifies the position relative to the 'natural position' of the element.
+
+				natural position of an element is the position which naturally arises after applying the other layout properties specified.
+			*/
+#sidebar{
+			float:left;
+			border:1px solid gray;
+			width:200px;
+}
+#footer{
+			background-color:#ddddff;
+}
+#content h1{
+	font-size: 1.5em;
+}
+#content p {
+}
+#footer p{
+			text-align:right;
+}
+		/*
+			float/position can override container border
+		e	and 
+			float/position element can be within a margin.
+
+			BUT float element cannot be within a clear tag 
+		*/
+		</style>
+	</head>
+	<body>
+	<!-- fixed width layout -->
+		<div id="farouter">
+			<div id="header">
+				<h1> Aloha </h1>
+				
+			</div>
+			<div id="sidebar">
+			<p>
+				lorem ipsom dolores lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+				lorem ipsom dolores 
+			</p>
+			</div>
+			<div id="content">
+			<h1>This is content header</h1>
+			<div id="nav">
+			    <ul>
+				    <li><a href="">Home</a></li>
+				    <li><a href="">Somewhere</a></li>
+				    <li><a href="">Somewhere else</a></li>
+				    <li><a href="">Betelgeuse</a></li>
+				    <li><a href="">andromeda</a></li>
+				</ul>
+																							                </div>
+				<p>
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+					Cloud atlas a fine book by david mitchel is turning out to be a frolic in multiple times.
+				</p>
+			
+			<!--
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="blockclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" style="visibility:hidden" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" style="position:relative; left:100px; top:100px"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+				<img src="lablogo1.jpg" class="imageclass"/>
+			-->
+
+			</div>
+			<div style="clear:both"></div>
+			<div id="footer"> 
+				Have a nice day! <p>&copy: 2013 swasthindia services pvt ltd.</p>
+			</div>
+
+		</div>
+	</body>
+</html>

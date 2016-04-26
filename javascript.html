@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<script>
+		function s(){
+
+			alert("hello");
+		}
+		function f(){
+			var a = {"a":36,"b":18,c:s};
+			/*
+
+				a function can be the value of one of the keys of an associative array.
+				And the name of the function is a variable representing that function available to anyone.
+
+				Now this variable s is also an associative array and you 
+				can define key value pairs on it.
+				
+			*/
+			/*
+
+				var a = new Object();
+				a.b=5;
+				An object is an associative array.
+			*/		
+			alert(a["b"]);
+			a["bd"] = 45;
+			alert(a.bd);
+			a.c.d = 5;
+			s.d=7;
+			alert(s.d);
+			a.c();
+		}	
+		/*
+			An variable refers to an associative array and function.
+			An object is an associative array, 
+			a function is a piece of code, an associative array and a prototype for a new instance of an object.
+			a function can access variables on the object it is being called using 'this' keyword. 
+			variables in 'this' keyword is part of the state of the object left behind by its prototyping function and
+			other functions being called 'on' it. 'this' can also be used to access values in the key value pairs.
+			A function can also define keys in the associative array of the object it is being called. 
+			A function used as a prototype does not have an initial associative array avaiable to it, but it can create an
+			initial state of the associative array of the object it is creating.
+
+			[
+				closures - don't understand this. But if the state of a function was stored on the heap and not popped, 
+				it is something close to a closure. 
+			]		
+
+			A object refers to three things an Associative array, a function which defines the prototype.
+
+		*/
+		function r() {
+			alert("hi " + this.b);
+			var b = 50;
+			alert("hi " + b);
+			b++;
+		}
+		function point(a,b){
+			this.X=a;
+			this.Y=b;
+			this.show = function (){
+				alert(this.X+","+this.Y);
+				this.Z=7;
+			}
+		}
+		function run(){
+			var a = {}; 
+			a.f = r;
+			a.b = 5;
+			a.f();
+			/*
+				variable du when created already has two elements in the associative array. 
+				Calling the show method on du ensured that a third element Z is also defined. 
+			*/
+			var du = new point(4,6);
+			alert(du.X);
+			du.show();
+			alert(du.Z);
+			/*
+			var p1=new point(5,6);
+			var p1 = (new Object());
+			p1.a = point;
+			p1.a();
+			delete p1.a;
+			var p2=new point(11,23);
+			var c = new p1.show();
+			alert(c.Z);
+			*/
+		}
+		Function.prototype.method = function(name,func){
+			this.prototype[name]=func;
+			return this;
+		}
+		Function.prototype.variable = function(key,value){
+			this.prototype[key] = value;
+			return this;
+		}
+		function classDefExample(val){
+			this.doSomethingWithVal(val);
+			return this;
+		}
+		classDefExample.method('doSomethingWithVal',function(val){
+			alert ("crazy "+val);
+			this.K = val;
+		});
+		classDefExample.variable('J','5');
+
+		function testClassDef(){
+			var b = new classDefExample(54);
+			alert(b.J);
+			alert(b.mayank);
+		}
+
+
+		</script>
+	</head>
+	<body>
+		<h2>Hello</h2>
+		<input type="button" onclick="run()" value="Submit" name = "crazy"/>		
+		<input type="button" onclick="testClassDef()" value="Try me" name = "Lazy"/>		
+	</body>
+</html>

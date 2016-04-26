@@ -1,0 +1,54 @@
+<html>
+	<!-- looking at a video - http://tv.adobe.com/watch/max-2013/combining-web-graphics-svg-html-css-2d-and-3d-canvas/ -->
+
+	<!--
+	Canvas - its actually an HTML element with a javascript API. Its basic element is a pixel and you can do all sorts of pixel manipulation through the javascript API. The trouble is that the DOM is unaware of whatever you make on canvas. The DOM only knows the canvas element and so lets say you want to click on a circle drawn in canvas and do something with it, the DOM will not be able to tell you whether you clicked on the circle which you drew in the canvas element using javascript. It can tell you whether you clicked on the canvas element.
+
+	SVG - older specification. Each element in SVG is an element in the DOM. The specification is longer and more complicated because you dont have access to pixels, so you have many many functions which can do many things. But the DOM is aware if you click on a circle in SVG. Its also very expensive, each element costs you some memory/performance. SVG supports CSS also
+
+	Excellent explanation of Viewport and viewbox here at http://tutorials.jenkov.com/svg/svg-viewport-view-box.html
+
+	IE-7 doesn't have SVG or Canvas
+
+
+	-->
+
+	<head>
+		<style>
+			#box{
+				width:500px; height:100px;
+				border:solid 5px #000;
+				border-color:#000 transparent transparent transparent;
+				border-radius: 50%/100px 100px 0 0;
+				
+				display:inline-block;
+
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+
+		</canvas>
+		<div id="box"></div>
+		<div style="width:150px;height:30px">
+			<svg viewBox="0 0 300 100" preserveAspectRatio="XMidYMid slice">
+				<circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+			</svg>
+		</div>
+		<script>
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.beginPath();
+			ctx.moveTo(20,20);
+			ctx.bezierCurveTo(20,100,200,100,200,20);
+			ctx.stroke();
+
+
+		</script>
+	</body>
+
+</html>
+
